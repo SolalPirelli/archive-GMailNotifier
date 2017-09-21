@@ -1,0 +1,91 @@
+﻿<!-- 
+Copyright (C) 2012, Solal Pirelli
+This code is licensed under a modified MIT License (see Properties\Licence.txt for details).
+Redistributions of this source code or compiled versions of it must retain the above copyright notice and the licence.
+-->
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:my="clr-namespace:GMailNotifier">
+    <ControlTemplate TargetType="ButtonBase" x:Key="FlatButtonTemplate">
+        <Border Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}">
+            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+        </Border>
+    </ControlTemplate>
+
+    <Style TargetType="RepeatButton">
+        <Setter Property="Template" Value="{StaticResource FlatButtonTemplate}" />
+        <Setter Property="Background" Value="{StaticResource ButtonBackgroundBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource ButtonForegroundBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{StaticResource ButtonBorderBrush}" />
+
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="3" />
+        <Setter Property="Margin" Value="3" />
+
+        <Setter Property="MinWidth" Value="20" />
+        <Setter Property="MinHeight" Value="15" />
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource ButtonHoverBackgroundBrush}" />
+                <Setter Property="Foreground" Value="{StaticResource ButtonHoverForegroundBrush}" />
+                <Setter Property="BorderBrush" Value="{StaticResource ButtonHoverBorderBrush}" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" Value="{StaticResource ButtonDisabledBackgroundBrush}" />
+                <Setter Property="Foreground" Value="{StaticResource ButtonDisabledForegroundBrush}" />
+                <Setter Property="BorderBrush" Value="{StaticResource ButtonDisabledBorderBrush}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="BaseTextBlock">
+        <Setter Property="Foreground" Value="{StaticResource TextForegroundBrush}" />
+
+        <Setter Property="FontSize" Value="{StaticResource FontSize}" />
+        <Setter Property="FontFamily" Value="{StaticResource FontFamily}" />
+        
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="TitleTextBlock" BasedOn="{StaticResource BaseTextBlock}">
+        <Setter Property="FontSize" Value="{StaticResource BigFontSize}" />
+
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="TextTrimming" Value="WordEllipsis" />
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="SenderTextBlock" BasedOn="{StaticResource BaseTextBlock}">
+        <Setter Property="FontStyle" Value="Italic" />
+        <Setter Property="TextTrimming" Value="CharacterEllipsis" />
+    </Style>
+
+    <Style TargetType="Image">
+        <Setter Property="Margin" Value="2,2,5,2" />
+    </Style>
+
+    <Style TargetType="my:ToastWindow" x:Key="ToastWindowStyle">
+        <Setter Property="Background" Value="{StaticResource ToastBackgroundBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="{StaticResource ToastBorderBrush}" />
+
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+
+        <Setter Property="WindowStyle" Value="None" />
+        <Setter Property="AllowsTransparency" Value="True" />
+        <Setter Property="Topmost" Value="True" />
+        <Setter Property="ShowInTaskbar" Value="False" />
+
+        <Setter Property="Width" Value="300" />
+        <Setter Property="Height" Value="60" />
+    </Style>
+</ResourceDictionary>

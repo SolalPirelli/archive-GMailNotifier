@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2EB134CA-E446-4482-81D2-80014F03A5D2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GMailNotifier</RootNamespace>
+    <AssemblyName>GMailNotifier</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\NewMail.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Authenticator.cs" />
+    <Compile Include="ImapX\Attachment.cs" />
+    <Compile Include="ImapX\Authentication\ImapCredentials.cs" />
+    <Compile Include="ImapX\Authentication\OAuth2Credentials.cs" />
+    <Compile Include="ImapX\Authentication\PlainCredentials.cs" />
+    <Compile Include="ImapX\Capability.cs" />
+    <Compile Include="ImapX\ClientBehavior.cs" />
+    <Compile Include="ImapX\Collections\CommonFolderCollection.cs" />
+    <Compile Include="ImapX\Collections\FolderCollection.cs" />
+    <Compile Include="ImapX\Collections\FolderFlagCollection.cs" />
+    <Compile Include="ImapX\Collections\GMailMessageLabelCollection.cs" />
+    <Compile Include="ImapX\Collections\GMailThreadCollection.cs" />
+    <Compile Include="ImapX\Collections\ImapObjectCollection.cs" />
+    <Compile Include="ImapX\Collections\MessageCollection.cs" />
+    <Compile Include="ImapX\Collections\MessageFlagCollection.cs" />
+    <Compile Include="ImapX\Constants\ImapCommands.cs" />
+    <Compile Include="ImapX\Constants\MessageHeader.cs" />
+    <Compile Include="ImapX\Constants\MessageHeaderSets.cs" />
+    <Compile Include="ImapX\Constants\ResponseType.cs" />
+    <Compile Include="ImapX\EncodingHelpers\Base64.cs" />
+    <Compile Include="ImapX\EncodingHelpers\BodyDecoder.cs" />
+    <Compile Include="ImapX\EncodingHelpers\ImapUTF7.cs" />
+    <Compile Include="ImapX\EncodingHelpers\StringDecoder.cs" />
+    <Compile Include="ImapX\Enums\BodyType.cs" />
+    <Compile Include="ImapX\Enums\ContentTransferEncoding.cs" />
+    <Compile Include="ImapX\Enums\FolderTreeBrowseMode.cs" />
+    <Compile Include="ImapX\Enums\MessageFetchMode.cs" />
+    <Compile Include="ImapX\Enums\MessageFetchState.cs" />
+    <Compile Include="ImapX\Enums\MessageImportance.cs" />
+    <Compile Include="ImapX\Enums\MessageParseState.cs" />
+    <Compile Include="ImapX\Enums\MessageSensitivity.cs" />
+    <Compile Include="ImapX\Envelope.cs" />
+    <Compile Include="ImapX\Exceptions\InvalidStateException.cs" />
+    <Compile Include="ImapX\Exceptions\OperationFailedException.cs" />
+    <Compile Include="ImapX\Exceptions\ServerAlertException.cs" />
+    <Compile Include="ImapX\Extensions\EnumerableExtensions.cs" />
+    <Compile Include="ImapX\Extensions\EnumExtensions.cs" />
+    <Compile Include="ImapX\Extensions\MailMessageExtensions.cs" />
+    <Compile Include="ImapX\Extensions\ObjectExtensions.cs" />
+    <Compile Include="ImapX\Extensions\StringExtensions.cs" />
+    <Compile Include="ImapX\Flags\FolderFlags.cs" />
+    <Compile Include="ImapX\Flags\MessageFlags.cs" />
+    <Compile Include="ImapX\Folder.cs" />
+    <Compile Include="ImapX\GMailMessageThread.cs" />
+    <Compile Include="ImapX\ImapBase.cs" />
+    <Compile Include="ImapX\ImapClient.cs" />
+    <Compile Include="ImapX\MailAddress.cs" />
+    <Compile Include="ImapX\Message.cs" />
+    <Compile Include="ImapX\MessageBody.cs" />
+    <Compile Include="ImapX\MessageBuilder.cs" />
+    <Compile Include="ImapX\MessageContent.cs" />
+    <Compile Include="ImapX\MessageUploader.cs" />
+    <Compile Include="ImapX\Parsing\BodyStructureParser.cs" />
+    <Compile Include="ImapX\Parsing\CommandProcessor.cs" />
+    <Compile Include="ImapX\Parsing\Expressions.cs" />
+    <Compile Include="ImapX\Parsing\HeaderFieldParser.cs" />
+    <Compile Include="Interop\AuthenticationDialog.cs" />
+    <Compile Include="Interop\MouseEvents.cs" />
+    <Compile Include="Interop\TrayIcon.cs" />
+    <Compile Include="MailMessage.cs" />
+    <Compile Include="Notifier.cs" />
+    <Compile Include="RelayCommand.cs" />
+    <Compile Include="Strings.cs" />
+    <Compile Include="ToastWindow.xaml.cs">
+      <DependentUpon>ToastWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\ContentUpDownDefaultStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\ContentUpDown.cs" />
+    <Compile Include="GMailClient.cs" />
+    <Compile Include="IMailClient.cs" />
+    <Compile Include="MailState.cs" />
+    <Page Include="Resources\Icons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Resources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ToastWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\NewMail.ico" />
+    <EmbeddedResource Include="Resources\NoNewMail.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Properties\Licence.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Error.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
